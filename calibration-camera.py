@@ -3,9 +3,10 @@ import cv2
 import glob
 
 # Define the dimensions of the checkerboard
-CHECKERBOARD = (9, 6)
+CHECKERBOARD = (14, 10)
 # Define the real-world size of the squares in meters (e.g., 20mm = 0.02 meters)
 SQUARE_SIZE = 0.024
+IMAGE_PATH_PATTERN = '../chessboard-images/*.jpg'
 
 criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 30, 0.001)
 
@@ -19,7 +20,7 @@ objp[:, :2] = np.mgrid[0:CHECKERBOARD[0], 0:CHECKERBOARD[1]].T.reshape(-1, 2)
 objp = objp * SQUARE_SIZE  # Scale the object points by the real size of the squares
 
 # Get the paths of all the images
-images = glob.glob('chessboard_calibration/*.png')  # Update with the path to your images
+images = glob.glob(IMAGE_PATH_PATTERN)  # Update with the path to your images
 
 for image_file in images:
     print(image_file)

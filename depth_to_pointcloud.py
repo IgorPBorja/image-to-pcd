@@ -32,10 +32,10 @@ print(f"FY: {FY}")
 print(f"FL (average focal length): {FL}")
 
 NYU_DATA = False
-INPUT_DIR = './my_test/input/indoor'
-OUTPUT_DIR = './my_test/output/indoor/'
-DATASET = 'nyu'  # For INDOOR
-# DATASET = 'kitti'  # For OUTDOOR
+INPUT_DIR = '../data/input/'
+OUTPUT_DIR = '../data/output/'
+# DATASET = 'nyu'  # For INDOOR
+DATASET = 'kitti'  # For OUTDOOR
 
 
 def process_images(model):
@@ -91,6 +91,6 @@ def main(model_name, pretrained_resource):
 
 if __name__ == '__main__':
     model = 'zoedepth'
-    pretrained_resource = 'local::./checkpoints/depth_anything_metric_depth_indoor.pt'
-    # pretrained_resource = 'local::./checkpoints/depth_anything_metric_depth_outdoor.pt'
+    # pretrained_resource = 'local::./checkpoints/depth_anything_metric_depth_indoor.pt'
+    pretrained_resource = 'local::./checkpoints/depth_anything_metric_depth_outdoor.pt'
     main(model, pretrained_resource)
